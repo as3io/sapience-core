@@ -1,0 +1,13 @@
+{
+  "name": "sapience-core",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/as3io/sapience-core.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "stampit": "^4.0.2"
+  }
+}
