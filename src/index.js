@@ -1,3 +1,1 @@
-module.exports = () => {
-  return 'good!';
-};
+exports.constants = require('./constants')
