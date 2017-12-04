@@ -2,6 +2,11 @@
   "name": "sapience-core",
   "version": "1.0.0",
   "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec --recursive",
+    "coverage": "./node_modules/.bin/nyc --reporter=text npm run test",
+    "lint": "./node_modules/.bin/eslint \"src/**/*.js\"; exit 0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/as3io/sapience-core.git"
@@ -9,5 +14,13 @@
   "license": "MIT",
   "dependencies": {
     "stampit": "^4.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0"
   }
 }
