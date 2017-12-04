@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 const constants = require('../src/constants');
 
 describe('constants', function() {
-  it('should return a frozen object', function(done) {
+  it('should be a frozen object', function(done) {
     expect(constants).to.be.frozen;
     done();
   });
