@@ -6,7 +6,7 @@ describe('utils/index', function() {
     expect(index).to.be.an('object');
     done();
   });
-  const props = ['isObject', 'stampTypeOf', 'castAs'];
+  const props = ['isObject', 'castAs'];
   props.forEach((prop) => {
     it(`should have the '${prop}' property`, function(done) {
       expect(index).to.have.property(prop);
