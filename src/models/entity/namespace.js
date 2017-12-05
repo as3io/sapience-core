@@ -171,10 +171,10 @@ const Namespace = compose({
      * Converts a stringified namsespace into a Namespace object.
      *
      * Given the following string:
-     * 1. `bar` returns `{ n: undefined, b: undefined, n: 'bar' }`.
-     * 2. `foo.bar` returns `{ n: undefined, b: 'foo', n: 'bar' }`.
-     * 3. `baz.foo.bar` returns `{ n: 'baz', b: 'foo', n: 'bar' }`.
-     * 4. `baz..bar` returns `{ n: 'baz', b: undefined, n: 'bar' }`.
+     * 1. `bar` returns `{ z: undefined, b: undefined, n: 'bar' }`.
+     * 2. `foo.bar` returns `{ z: undefined, b: 'foo', n: 'bar' }`.
+     * 3. `baz.foo.bar` returns `{ z: 'baz', b: 'foo', n: 'bar' }`.
+     * 4. `baz..bar` returns `{ z: 'baz', b: undefined, n: 'bar' }`.
      *
      * All non-string values of `v` will return an empty Namespace.
      *
