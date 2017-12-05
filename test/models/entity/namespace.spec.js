@@ -93,7 +93,7 @@ const cases = [
   },
   {
     init: { b: 'bar', n: 'baz' },
-    args: [null, 'bar', 'baz'],
+    args: ['bar', 'baz'],
     stringified: '.bar.baz',
     expected: { z: undefined, b: 'bar', n: 'baz', isEmpty: false, isValid: true },
   },
@@ -156,6 +156,11 @@ describe('models/entity/namespace', function() {
     it('should return a Namespace object instance', function(done) {
       const ns = Namespace.fromString();
       testInstance(ns);
+      done();
+    });
+    it('should create the Namespace with the expected edge-case values', function(done) {
+      testGetters(Namespace.fromString('bar'), { z: undefined, b: undefined, n: 'bar' });
+      testGetters(Namespace.fromString('foo.bar'), { z: undefined, b: 'foo', n: 'bar' });
       done();
     });
     cases.forEach((c, i) => {
