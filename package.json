@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec --recursive",
-    "coverage": "./node_modules/.bin/nyc --reporter=text npm run test",
+    "test": "./node_modules/.bin/mocha --recursive",
+    "coverage": "./node_modules/.bin/nyc --reporter=text --all npm run test",
     "lint": "./node_modules/.bin/eslint \"src/**/*.js\"; exit 0"
   },
   "repository": {
@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "no-case": "^2.3.2",
     "stampit": "^4.0.2"
   },
   "devDependencies": {
