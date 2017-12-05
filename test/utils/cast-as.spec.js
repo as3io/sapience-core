@@ -55,18 +55,6 @@ describe('utils/cast-as', function() {
         expect(dasherized(value)).to.equal(expected);
         done();
       });
-      // const { value, expected } = c;
-      // expect(dasherized(value)).to.equal(expected);
     });
-
-
-    // it('should return a dasherized, string value', function(done) {
-
-    //   cases.forEach(c => {
-    //     const { value, expected } = c;
-    //     expect(dasherized(value)).to.equal(expected);
-    //   });
-    //   done();
-    // });
   });
 });
