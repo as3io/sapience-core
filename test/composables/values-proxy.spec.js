@@ -7,22 +7,29 @@ describe('composables/values-proxy', function() {
     expect(ValuesProxy).to.be.a('function');
     done();
   });
-  describe('#set()', function() {
+  describe('#getValue()', function() {
     it('should respond', function(done) {
       const instance = ValuesProxy();
-      expect(instance).to.respondsTo('set');
+      expect(instance).to.respondsTo('getValue');
+      done();
+    });
+  });
+  describe('#setValue()', function() {
+    it('should respond', function(done) {
+      const instance = ValuesProxy();
+      expect(instance).to.respondsTo('setValue');
       done();
     });
     it('should prevent setting unknown properties when in strict mode', function(done) {
       const instance = ValuesProxy();
-      instance.set('foo', 'bar');
-      expect(instance.get('foo')).to.be.undefined;
+      instance.setValue('foo', 'bar');
+      expect(instance.getValue('foo')).to.be.undefined;
       done();
     });
     it('should allow setting unknown properties when not in strict mode', function(done) {
       const instance = ValuesProxy();
-      instance.set('foo', 'bar', false);
-      expect(instance.get('foo')).to.equal('bar');
+      instance.setValue('foo', 'bar', false);
+      expect(instance.getValue('foo')).to.equal('bar');
       done();
     });
     it('should allow setting known properties when in strict mode', function(done) {
@@ -32,8 +39,8 @@ describe('composables/values-proxy', function() {
         },
       }, ValuesProxy);
       const instance = Factory();
-      instance.set('foo', 'bar');
-      expect(instance.get('foo')).to.equal('bar');
+      instance.setValue('foo', 'bar');
+      expect(instance.getValue('foo')).to.equal('bar');
       done();
     });
   });

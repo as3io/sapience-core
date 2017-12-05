@@ -5,10 +5,10 @@ module.exports = compose({
     values: {},
   },
   methods: {
-    get(name) {
+    getValue(name) {
       return this.values[name];
     },
-    set(name, value, strict = true) {
+    setValue(name, value, strict = true) {
       if (!strict || (strict && Object.getOwnPropertyDescriptor(this, name))) {
         this.values[name] = value;
       }
