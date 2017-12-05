@@ -6,7 +6,7 @@ describe('composables/index', function() {
     expect(index).to.be.an('object');
     done();
   });
-  const props = ['SelfAware'];
+  const props = ['SelfAware', 'ValuesProxy'];
   props.forEach((prop) => {
     it(`should have the '${prop}' property`, function(done) {
       expect(index).to.have.property(prop);
