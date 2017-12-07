@@ -95,7 +95,15 @@ const Entity = compose({
      * @return {string}
      */
     toString() {
-      return [this.id, this.ns.toString()].join('*');
+      const parts = [];
+      if (this.id) {
+        parts.push(this.id);
+      }
+      if (!this.ns.isEmpty()) {
+        parts.push('*');
+        parts.push(this.ns.toString());
+      }
+      return parts.join('');
     },
   },
 

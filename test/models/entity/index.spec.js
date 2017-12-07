@@ -45,7 +45,7 @@ const cases = [
   {
     init: { id: 1234 },
     args: [1234],
-    stringified: '1234*',
+    stringified: '1234',
     expected: { id: '1234', ns: { z: undefined, b: undefined, n: undefined }, isValid: false },
   },
   {
@@ -53,6 +53,12 @@ const cases = [
     args: [null, 'foo', 'bar', 'baz'],
     stringified: '*foo.bar.baz',
     expected: { id: undefined, ns: { z: 'foo', b: 'bar', n: 'baz' }, isValid: false },
+  },
+  {
+    init: {},
+    args: [],
+    stringified: '',
+    expected: { id: undefined, ns: { z: undefined, b: undefined, n: undefined }, isValid: false },
   },
 ];
 
@@ -107,6 +113,11 @@ describe('models/entity', function() {
     it('should return an Entity object instance', function(done) {
       const ent = Entity.fromString();
       testInstance(ent);
+      done();
+    });
+    it('should create the Entity with the expected edge-case values', function(done) {
+      testGetters(Entity.fromString('1234*'), { id: '1234', ns: { z: undefined, b: undefined, n: undefined } });
+      testGetters(Entity.fromString(null), { id: undefined, ns: { z: undefined, b: undefined, n: undefined } });
       done();
     });
     cases.forEach((c, i) => {
