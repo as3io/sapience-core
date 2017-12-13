@@ -18,6 +18,15 @@ describe('models/user', function() {
     expect(User).to.be.a('function');
     done();
   });
+  describe('#anon', function() {
+    it('should not be settable', function(done) {
+      const user = User();
+      expect(user.anon).to.be.false;
+      user.anon = true;
+      expect(user.anon).to.be.false;
+      done();
+    });
+  });
   describe('#()', function() {
     it('it should be a User instance', function(done) {
       testInstance(User());
@@ -37,6 +46,7 @@ describe('models/user', function() {
     it('should be anonymous and contain an id', function(done) {
       const user = User.createAnon();
       expect(user.isAnonymous()).to.be.true;
+      expect(user.anon).to.be.true;
       expect(user.id).to.be.a('string');
       expect(user.id.length).to.be.greaterThan(0);
       done();
@@ -66,6 +76,8 @@ describe('models/user', function() {
       const user2 = User({ id: '1234', ns: { z: APP_NAME.toLowerCase(), b: 'anon', n: 'user' } });
       expect(user1.isAnonymous()).to.be.true;
       expect(user2.isAnonymous()).to.be.true;
+      expect(user1.anon).to.be.true;
+      expect(user2.anon).to.be.true;
       done();
     });
     it('should return false for a non-anonymous user', function(done) {
@@ -73,6 +85,8 @@ describe('models/user', function() {
       const user2 = User({ id: '1234', ns: { z: 'something-else', b: 'anon', n: 'user' } });
       expect(user1.isAnonymous()).to.be.false;
       expect(user2.isAnonymous()).to.be.false;
+      expect(user1.anon).to.be.false;
+      expect(user2.anon).to.be.false;
       done();
     });
   });

@@ -5,6 +5,18 @@ const Namespace = require('./entity/namespace');
 const { APP_NAME } = require('../constants');
 
 const User = compose(Entity, {
+  /**
+   * Defines property descriptors for this instance.
+   * Allows for getters/setters and other options.
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty}
+   */
+  propertyDescriptors: {
+    anon: {
+      enumerable: true,
+      set() { }, // Do not allow set.
+      get() { return this.isAnonymous(); },
+    },
+  },
   methods: {
     /**
      * Determines if this User instance is considered anonymous (internally).
