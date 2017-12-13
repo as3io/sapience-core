@@ -33,6 +33,24 @@ const User = compose(Entity, {
    */
   statics: {
     /**
+     * Creates a new User from an Entity string.
+     *
+     * @return {User}
+     */
+    fromString() {
+      return User(Entity.fromString(...arguments));
+    },
+
+    /**
+     * Makes a new User from an Entity list of args.
+     *
+     * @return {User}
+     */
+    make() {
+      return User(Entity.make(...arguments));
+    },
+
+    /**
      * Creates a new, anonymous user.
      *
      * @return {User}
@@ -41,6 +59,7 @@ const User = compose(Entity, {
       const ns = User.getAnonNamespace();
       return User({ id: uuid(), ns });
     },
+
     /**
      * Get/creates an anonymous namespace instance.
      *

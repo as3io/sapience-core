@@ -19,6 +19,12 @@ describe('models/user', function() {
     done();
   });
   describe('#anon', function() {
+    it('should return the correct value from each constructor', function(done) {
+      [User(), User.make(), User.fromString('')].forEach((user) => {
+        expect(user.anon).to.be.false;
+      });
+      done();
+    }),
     it('should not be settable', function(done) {
       const user = User();
       expect(user.anon).to.be.false;
@@ -30,6 +36,8 @@ describe('models/user', function() {
   describe('#()', function() {
     it('it should be a User instance', function(done) {
       testInstance(User());
+      testInstance(User.make());
+      testInstance(User.fromString());
       done();
     });
   });
