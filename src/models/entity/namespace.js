@@ -144,6 +144,15 @@ const Namespace = compose(ValuesProxy, {
     },
 
     /**
+     * Converts the namespace to an array.
+     *
+     * @return {string[]}
+     */
+    toArray() {
+      return [this.z, this.b, this.n];
+    },
+
+    /**
      * Converts the namespace to a string.
      *
      * Given the following object properties:
@@ -159,7 +168,7 @@ const Namespace = compose(ValuesProxy, {
      */
     toString() {
       if (this.isEmpty()) return '';
-      return [this.z, this.b, this.n].join('.');
+      return this.toArray().join('.');
     },
   },
 
