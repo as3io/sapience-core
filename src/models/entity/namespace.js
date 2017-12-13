@@ -5,7 +5,7 @@ const ValuesProxy = require('../../composables/values-proxy');
 
 const { assign } = Object;
 
-const Namespace = compose({
+const Namespace = compose(ValuesProxy, {
   /**
    *
    * @param {Object} opts
@@ -209,6 +209,6 @@ const Namespace = compose({
       return Namespace(opts);
     },
   },
-}, ValuesProxy, SelfAware);
+}, SelfAware);
 
 module.exports = Namespace;

@@ -7,6 +7,17 @@ describe('composables/values-proxy', function() {
     expect(ValuesProxy).to.be.a('function');
     done();
   });
+  it('should create unique instances', function(done) {
+    const proxy1 = ValuesProxy();
+    proxy1.setValue('foo', 'bar', false);
+
+    const proxy2 = ValuesProxy();
+    proxy2.setValue('foo', 'baz', false);
+
+    expect(proxy1.getValue('foo')).to.equal('bar');
+    expect(proxy2.getValue('foo')).to.equal('baz');
+    done();
+  });
   describe('#getValue()', function() {
     it('should respond', function(done) {
       const instance = ValuesProxy();

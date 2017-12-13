@@ -1,8 +1,8 @@
 const compose = require('stampit');
 
 module.exports = compose({
-  properties: {
-    values: {},
+  init() {
+    this.values = {};
   },
   methods: {
     getValue(name) {

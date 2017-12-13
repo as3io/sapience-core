@@ -4,7 +4,7 @@ const SelfAware = require('../../composables/self-aware');
 const ValuesProxy = require('../../composables/values-proxy');
 const { string } = require('../../utils/cast-as');
 
-const Entity = compose({
+const Entity = compose(ValuesProxy, {
   /**
    *
    * @param {Object} opts
@@ -173,6 +173,6 @@ const Entity = compose({
     },
   },
 
-}, ValuesProxy, SelfAware);
+}, SelfAware);
 
 module.exports = Entity;

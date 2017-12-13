@@ -115,6 +115,17 @@ describe('models/entity', function() {
       testInstance(ent);
       done();
     });
+    it('should return distinct Entity object instances', function(done) {
+      const ent1 = Entity.fromString('1234*foo.bar.baz'); // Entity({ id: '1234' });
+      const ent2 = Entity.fromString('4321*baz.bar.foo'); // Entity({ id: '4321' });
+
+      const expected1 = { id: '1234', ns: { z: 'foo', b: 'bar', n: 'baz' }, isValid: true };
+      const expected2 = { id: '4321', ns: { z: 'baz', b: 'bar', n: 'foo' }, isValid: true };
+
+      testGetters(ent1, expected1);
+      testGetters(ent2, expected2);
+      done();
+    });
     it('should create the Entity with the expected edge-case values', function(done) {
       testGetters(Entity.fromString('1234*'), { id: '1234', ns: { z: undefined, b: undefined, n: undefined } });
       testGetters(Entity.fromString(null), { id: undefined, ns: { z: undefined, b: undefined, n: undefined } });
