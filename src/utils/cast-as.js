@@ -6,7 +6,7 @@ const noCase = require('no-case');
  * @param {*} v
  * @returns {string}
  */
-exports.string = (v) => {
+const string = (v) => {
   if (v === undefined || v === null || Number.isNaN(v)) return '';
   return String(v).trim();
 };
@@ -17,7 +17,12 @@ exports.string = (v) => {
  * @param {*} v
  * @returns {string}
  */
-exports.dasherized = (v) => {
-  const cast = this.string(v);
+const dasherized = (v) => {
+  const cast = string(v);
   return cast.length ? noCase(cast, null, '-') : cast;
+};
+
+module.exports = {
+  string,
+  dasherized,
 };
