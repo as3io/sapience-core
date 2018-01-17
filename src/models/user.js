@@ -37,8 +37,8 @@ const User = compose(Entity, {
      *
      * @return {User}
      */
-    fromString() {
-      return User(Entity.fromString(...arguments));
+    fromString(...args) {
+      return User(Entity.fromString(...args));
     },
 
     /**
@@ -46,8 +46,8 @@ const User = compose(Entity, {
      *
      * @return {User}
      */
-    make() {
-      return User(Entity.make(...arguments));
+    make(...args) {
+      return User(Entity.make(...args));
     },
 
     /**
